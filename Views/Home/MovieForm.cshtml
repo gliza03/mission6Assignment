@@ -1,0 +1,37 @@
+﻿@model MovieForm
+<h1>Movie Form</h1>
+<form method="POST">
+    <label asp-for="movieCat"> Category</label>
+    <input asp-for="movieCat" />
+    <br />
+    <label asp-for="movieTitle">Title</label>
+    <input asp-for="movieTitle" />
+    <br />
+    <label asp-for="movieYear">Year</label>
+    <input asp-for="movieYear" />
+    <br />
+    <label asp-for="movieDirector">Director</label>
+    <<input asp-for="movieDirector" />
+    <br />
+    <label asp-for="movieRating">Rating</label>
+    <select asp-for="movieRating">
+        <option>G</option>
+        <option>PG</option>
+        <option>PG-13</option>
+        <option>R</option>
+    </select>
+    <br />
+    <label asp-for="isEdited">Edited</label>
+    <select asp-for="isEdited">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br />
+    <label asp-for="lentTo">Lent to</label>
+    <input asp-for="lentTo" />
+    <br />
+    <label asp-for ="Notes">Notes</label>
+    <input asp-for="Notes" />
+
+    <button type="submit">Submit Movie</button>
+</form>
