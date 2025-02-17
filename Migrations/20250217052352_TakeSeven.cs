@@ -5,7 +5,7 @@
 namespace mission6Assignment.Migrations
 {
     /// <inheritdoc />
-    public partial class takeThree : Migration
+    public partial class TakeSeven : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,7 +14,8 @@ namespace mission6Assignment.Migrations
                 name: "Movies",
                 columns: table => new
                 {
-                    formID = table.Column<int>(type: "int", nullable: false),
+                    formID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     movieCat = table.Column<string>(type: "TEXT", nullable: false),
                     movieTitle = table.Column<string>(type: "TEXT", nullable: false),
                     movieYear = table.Column<int>(type: "INTEGER", nullable: false),
@@ -26,7 +27,7 @@ namespace mission6Assignment.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_formID", x => x.formID);
+                    table.PrimaryKey("PK_Movies", x => x.formID);
                 });
         }
 

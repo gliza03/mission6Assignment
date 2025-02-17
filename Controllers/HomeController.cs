@@ -30,6 +30,8 @@ namespace mission6Assignment.Controllers
         public IActionResult MovieForm(MovieForm form)
         {
             _context.Movies.Add(form);
+            _context.SaveChanges();
+
             return View("Index");
         }
     }

@@ -11,28 +11,28 @@ namespace mission6Assignment.Models
 
         public DbSet<MovieForm> Movies { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
 
-        {
+        //{
 
-            modelBuilder.Entity<MovieForm>(entity =>
-            {
+        //    modelBuilder.Entity<MovieForm>(entity =>
+        //    {
 
-                entity.ToTable("Movies");
-                entity.HasKey(p => p.formID).HasName("PK_formID");
+        //        entity.ToTable("Movies");
+        //        entity.HasKey(p => p.formID).HasName("PK_formID");
 
-                entity.Property(p => p.formID)
+        //        entity.Property(p => p.formID)
 
-                .HasColumnName("formID")
+        //        .HasColumnName("formID")
 
-                .HasColumnType("int").ValueGeneratedNever();
+        //        .HasColumnType("int").ValueGeneratedNever();
 
-                entity.Property(p => p.movieTitle)
+        //        entity.Property(p => p.movieTitle)
 
-                .HasColumnName("movieTitle");
+        //        .HasColumnName("movieTitle");
 
-            });
+        //    });
 
-        }
+        //}
     }
 }

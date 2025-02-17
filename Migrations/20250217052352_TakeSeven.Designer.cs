@@ -10,8 +10,8 @@ using mission6Assignment.Models;
 namespace mission6Assignment.Migrations
 {
     [DbContext(typeof(movieFormContext))]
-    [Migration("20250211045855_takeThree")]
-    partial class takeThree
+    [Migration("20250217052352_TakeSeven")]
+    partial class TakeSeven
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,8 +22,8 @@ namespace mission6Assignment.Migrations
             modelBuilder.Entity("mission6Assignment.Models.MovieForm", b =>
                 {
                     b.Property<int>("formID")
-                        .HasColumnType("int")
-                        .HasColumnName("formID");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Notes")
                         .IsRequired()
@@ -50,16 +50,14 @@ namespace mission6Assignment.Migrations
 
                     b.Property<string>("movieTitle")
                         .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("movieTitle");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("movieYear")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("formID")
-                        .HasName("PK_formID");
+                    b.HasKey("formID");
 
-                    b.ToTable("Movies", (string)null);
+                    b.ToTable("Movies");
                 });
 #pragma warning restore 612, 618
         }
