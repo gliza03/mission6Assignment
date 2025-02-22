@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mission6Assignment.Models;
 
@@ -10,7 +9,7 @@ namespace mission6Assignment.Controllers
         public HomeController(movieFormContext temp) // Constructor
         {
             _context = temp;
-        } 
+        }
 
         public IActionResult Index()
         {
@@ -33,6 +32,14 @@ namespace mission6Assignment.Controllers
             _context.SaveChanges();
 
             return View("Index");
+        }
+
+        public IActionResult Table()
+        {
+            // Linq
+            var movies = _context.Movies.ToList();
+
+            return View(movies);
         }
     }
 }
