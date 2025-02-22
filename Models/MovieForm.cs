@@ -12,9 +12,11 @@ namespace mission6Assignment.Models
         public int movieYear { get; set; }
         public string movieDirector {  get; set; }
         public string movieRating { get; set; }
-        public bool isEdited { get; set; }
-        public string lentTo { get; set; }
-        public string Notes { get; set; }
+        public bool? isEdited { get; set; }
+        public string? lentTo { get; set; }
+
+        [StringLength(25, ErrorMessage = "Notes cannot be longer than 25 characters.")]
+        public string? Notes { get; set; }
 
     }
 }
