@@ -1,14 +1,20 @@
 ﻿@model MovieForm
 <h1>Movie Form</h1>
 <form method="POST">
-    @* <label asp-for="CategoryName"> Category</label> *@
-    @* <input asp-for="CategoryName" /> *@
+
+    <input type="hidden" asp-for="formID"/>
     
     <label asp-for="movieTitle">Title</label>
     <input asp-for="movieTitle" />
     <br />
-
-
+    <label asp-for="CategoryId">Genre</label>
+    <select asp-for="CategoryId">
+        <option value="">Select a Genre</option>
+        @foreach (Category m in ViewBag.Genres)
+        {
+            <option value="@m.CategoryId">@m.CategoryName</option>
+        }
+    </select>
     <br />
     <label asp-for="movieYear">Year</label>
     <input asp-for="movieYear" />

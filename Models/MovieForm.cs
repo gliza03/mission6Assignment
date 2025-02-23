@@ -12,8 +12,6 @@ namespace mission6Assignment.Models
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-
-        public string CategoryName {  get; set; }
         public string movieTitle { get; set; }
         public int movieYear { get; set; }
         public string movieDirector {  get; set; }
