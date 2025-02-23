@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mission6Assignment.Models
 {
@@ -7,7 +8,12 @@ namespace mission6Assignment.Models
         [Key]
         [Required]
         public int formID { get; set; }
-        public string movieCat {  get; set; }
+
+        [ForeignKey("CategoryId")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        public string CategoryName {  get; set; }
         public string movieTitle { get; set; }
         public int movieYear { get; set; }
         public string movieDirector {  get; set; }
