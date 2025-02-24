@@ -22,13 +22,13 @@ namespace mission6Assignment.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult MovieForm()
+        public IActionResult Movies()
         {
             ViewBag.Genres = _context.Categories.ToList();
-            return View(new MovieForm());
+            return View(new Movies());
         }
         [HttpPost]
-        public IActionResult MovieForm(MovieForm form)
+        public IActionResult Movies(Movies form)
         {
             Console.WriteLine($"CategoryId received: {form.CategoryId}");
 
@@ -46,24 +46,24 @@ namespace mission6Assignment.Controllers
         public IActionResult Table()
         {
             // Linq
-            var movies = _context.Movies.ToList();
+            var mov = _context.Movies.ToList();
 
-            return View(movies);
+            return View(mov);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
             var recordToEdit = _context.Movies
-                .Single(x => x.formID == id);
+                .Single(x => x.MovieId == id);
 
             ViewBag.Genres = _context.Categories.ToList();
 
-            return View("MovieForm", recordToEdit);
+            return View("Movies", recordToEdit);
         }
 
         [HttpPost]
-        public IActionResult Edit(MovieForm editedForm)
+        public IActionResult Edit(Movies editedForm)
         {
             _context.Update(editedForm);
             _context.SaveChanges();
@@ -76,13 +76,13 @@ namespace mission6Assignment.Controllers
         public IActionResult Delete(int id)
         {
             var recordToDelete = _context.Movies
-                .Single(x => x.formID == id);
+                .Single(x => x.MovieId == id);
 
             return View(recordToDelete);
         }
 
         [HttpPost]
-        public IActionResult Delete(MovieForm deleteForm)
+        public IActionResult Delete(Movies deleteForm)
         {
             _context.Remove(deleteForm);
             _context.SaveChanges();

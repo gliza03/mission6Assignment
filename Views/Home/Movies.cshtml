@@ -1,11 +1,12 @@
-﻿@model MovieForm
+﻿@model Movies
 <h1>Movie Form</h1>
 <form method="POST">
 
-    <input type="hidden" asp-for="formID"/>
+    <input type="hidden" asp-for="MovieId"/>
     
-    <label asp-for="movieTitle">Title</label>
-    <input asp-for="movieTitle" />
+    <label asp-for="Title">Title</label>
+    <input asp-for="Title" />
+
     <br />
     <label asp-for="CategoryId">Genre</label>
     <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Genres, "CategoryId", "CategoryName"))">
@@ -14,28 +15,36 @@
     <span asp-validation-for="CategoryId" class="text-danger"></span>
 
     <br />
-    <label asp-for="movieYear">Year</label>
-    <input asp-for="movieYear" />
+    <label asp-for="Year">Year</label>
+    <input asp-for="Year" />
     <br />
-    <label asp-for="movieDirector">Director</label>
-    <input asp-for="movieDirector" />
+    <label asp-for="Director">Director</label>
+    <input asp-for="Director" />
     <br />
-    <label asp-for="movieRating">Rating</label>
-    <select asp-for="movieRating">
+    <label asp-for="Rating">Rating</label>
+    <select asp-for="Rating">
+        <option value="">Select a Rating</option>
         <option>G</option>
         <option>PG</option>
         <option>PG-13</option>
         <option>R</option>
     </select>
     <br />
-    <label asp-for="isEdited">Edited</label>
-    <select asp-for="isEdited">
+    <label asp-for="Edited">Edited</label>
+    <select asp-for="Edited">
         <option value="true">Yes</option>
         <option value="false">No</option>
     </select>
     <br />
-    <label asp-for="lentTo">Lent to</label>
-    <input asp-for="lentTo" />
+    <label asp-for="LentTo">Lent to</label>
+    <input asp-for="LentTo" />
+    <br />
+    
+    <label asp-for="CopiedToPlex">CopiedToPlex</label>
+    <select asp-for="CopiedToPlex">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
     <br />
     <label asp-for ="Notes">Notes</label>
     <input asp-for="Notes" />

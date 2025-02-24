@@ -3,23 +3,24 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mission6Assignment.Models
 {
-    public class MovieForm
+    public class Movies
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
-        public int formID { get; set; }
+        public int MovieId { get; set; }
 
         [ForeignKey("CategoryId")]
         [Required(ErrorMessage = "Category is required")]
-        public int CategoryId { get; set; }
-        public string movieTitle { get; set; }
+        public int? CategoryId { get; set; }
+        public string Title { get; set; }
         [Range(1888,2026)]
-        public int movieYear { get; set; }
-        public string movieDirector {  get; set; }
-        public string movieRating { get; set; }
-        public bool? isEdited { get; set; }
-        public string? lentTo { get; set; }
+        public int Year { get; set; }
+        public string? Director {  get; set; }
+        public string? Rating { get; set; }
+        public bool Edited { get; set; }
+        public string? LentTo { get; set; }
+        public string CopiedToPlex { get; set; }
 
         [StringLength(25, ErrorMessage = "Notes cannot be longer than 25 characters.")]
         public string? Notes { get; set; }

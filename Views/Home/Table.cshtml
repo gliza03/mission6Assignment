@@ -4,7 +4,7 @@
 @{
 }
 
-@model List<MovieForm>
+@model List<Movies>
 
 <table class="table table-bordered">
     <thead class="fw-bold">
@@ -16,6 +16,7 @@
             <td>Rating</td>
             <td>Edited?</td>
             <td>Lend to</td>
+            <td>Copied To Plex</td>
             <td>Notes</td>
         </tr>
         
@@ -25,17 +26,18 @@
     {
         <tbody>
             <tr>
-                <td>@i.movieTitle</td>
+                <td>@i.Title</td>
                 <td>@i.CategoryId</td>
-                <td>@i.movieYear</td>
-                <td>@i.movieDirector</td>
-                <td>@i.movieRating</td>
-                <td>@i.isEdited</td>
-                <td>@i.lentTo</td>
+                <td>@i.Year</td>
+                <td>@i.Director</td>
+                <td>@i.Rating</td>
+                <td>@i.Edited</td>
+                <td>@i.LentTo</td>
+                <td>@i.CopiedToPlex</td>
                 <td>@i.Notes</td>
 
-                <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@i.formID">Edit</a></td>
-                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@i.formID">Delete</a></td>
+                <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@i.MovieId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@i.MovieId">Delete</a></td>
             </tr>
         
         </tbody>
