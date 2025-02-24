@@ -8,13 +8,11 @@
     <input asp-for="movieTitle" />
     <br />
     <label asp-for="CategoryId">Genre</label>
-    <select asp-for="CategoryId">
+    <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Genres, "CategoryId", "CategoryName"))">
         <option value="">Select a Genre</option>
-        @foreach (Category m in ViewBag.Genres)
-        {
-            <option value="@m.CategoryId">@m.CategoryName</option>
-        }
     </select>
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
+
     <br />
     <label asp-for="movieYear">Year</label>
     <input asp-for="movieYear" />
@@ -43,4 +41,6 @@
     <input asp-for="Notes" />
 
     <button type="submit">Submit Movie</button>
+
+    <div asp-validation-summary="All"></div>
 </form>

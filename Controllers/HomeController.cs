@@ -25,15 +25,22 @@ namespace mission6Assignment.Controllers
         public IActionResult MovieForm()
         {
             ViewBag.Genres = _context.Categories.ToList();
-            return View();
+            return View(new MovieForm());
         }
         [HttpPost]
         public IActionResult MovieForm(MovieForm form)
         {
-            _context.Movies.Add(form);
-            _context.SaveChanges();
+            Console.WriteLine($"CategoryId received: {form.CategoryId}");
 
-            return View("Index");
+            if (ModelState.IsValid)
+            {
+                _context.Movies.Add(form);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Genres = _context.Categories.ToList();
+            return View(form);
         }
 
         public IActionResult Table()
@@ -51,8 +58,6 @@ namespace mission6Assignment.Controllers
                 .Single(x => x.formID == id);
 
             ViewBag.Genres = _context.Categories.ToList();
-
-
 
             return View("MovieForm", recordToEdit);
         }
